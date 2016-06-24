@@ -30,7 +30,7 @@ namespace BugReportAssist.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
-        }
+        } 
 
         public DbSet<Ticket> Tickets { get; set; }
     }
