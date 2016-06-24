@@ -24,12 +24,12 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
                 </ul>
-                <div class="dropdown">
+                <div class="btn-group">
                     <button style="background-color: #222222; margin-top: 8px; float: left;" class="btn dropdown-toggle" type="button" data-toggle="dropdown">
                         @Html.ActionLink("Tickets", "About", "Home")
                         <span style="color: white;" class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" role="menu">
                         <li>
                             <a href="#">Poster un ticket</a>
                             <a href="#">Voir tout</a>
@@ -45,7 +45,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Copyright Bug Report Assist</p>
         </footer>
     </div>
 
