@@ -11,13 +11,8 @@ namespace BugTracker.Models
     public class Ticket
     {
         public int ID { get; set; }
-        public string objet { get; set; }
-        public string desc { get; set; }
-        public DateTime ReleaseDate { get; set; }
+        public string Sujet { get; set; }
+        public string Description { get; set; }
+        public DateTime Date { get; set; }
     }
-
-        public DbSet<Ticket> Tickets { get; set; }
-    
-
-
 }

@@ -24,8 +24,16 @@ namespace BugReportAssist.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseAlways<ApplicationDbContext>());
         }
 
+        public class ApplicationDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
+        {
+            protected override void Seed(ApplicationDbContext context)
+            {
+                base.Seed(context);
+            }
+        }
 
         public static ApplicationDbContext Create()
         {
@@ -34,7 +42,4 @@ namespace BugReportAssist.Models
 
         public DbSet<Ticket> Tickets { get; set; }
     }
- 
-        
-
 }

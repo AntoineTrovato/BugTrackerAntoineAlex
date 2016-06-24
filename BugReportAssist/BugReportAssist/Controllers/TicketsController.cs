@@ -7,17 +7,21 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BugTracker.Models;
+using BugReportAssist.Models;
 
 namespace BugReportAssist.Controllers
 {
     public class TicketsController : Controller
     {
-        private Appl db = new TicketDBContext();
+        
 
         // GET: Tickets
         public ActionResult Index()
         {
-            return View(db.Tickets.ToList());
+            using(var db = new ApplicationDbContext())
+            {
+                return View(db.Tickets.ToList());
+            }
         }
 
         // GET: Tickets/Details/5
@@ -27,12 +31,17 @@ namespace BugReportAssist.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ticket ticket = db.Tickets.Find(id);
-            if (ticket == null)
+
+            using (var db = new ApplicationDbContext())
             {
-                return HttpNotFound();
+                Ticket ticket = db.Tickets.Find(id);
+
+                if (ticket == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(ticket);
             }
-            return View(ticket);
         }
 
         // GET: Tickets/Create
@@ -46,12 +55,15 @@ namespace BugReportAssist.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,objet,desc,ReleaseDate")] Ticket ticket)
+        public ActionResult Create([Bind(Include = "ID,Sujet,Description,Date")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
-                db.Tickets.Add(ticket);
-                db.SaveChanges();
+                using (var db = new ApplicationDbContext())
+                {
+                    db.Tickets.Add(ticket);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
 
@@ -65,12 +77,15 @@ namespace BugReportAssist.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ticket ticket = db.Tickets.Find(id);
-            if (ticket == null)
+            using (var db = new ApplicationDbContext())
             {
-                return HttpNotFound();
+                Ticket ticket = db.Tickets.Find(id);
+                if (ticket == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(ticket);
             }
-            return View(ticket);
         }
 
         // POST: Tickets/Edit/5
@@ -78,12 +93,15 @@ namespace BugReportAssist.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,objet,desc,ReleaseDate")] Ticket ticket)
+        public ActionResult Edit([Bind(Include = "ID,Sujet,Description,Date")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(ticket).State = EntityState.Modified;
-                db.SaveChanges();
+                using (var db = new ApplicationDbContext())
+                {
+                    db.Entry(ticket).State = EntityState.Modified;
+                    db.SaveChanges();  
+                }
                 return RedirectToAction("Index");
             }
             return View(ticket);
@@ -96,22 +114,28 @@ namespace BugReportAssist.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ticket ticket = db.Tickets.Find(id);
-            if (ticket == null)
+            using (var db = new ApplicationDbContext())
             {
-                return HttpNotFound();
+                Ticket ticket = db.Tickets.Find(id);
+                if (ticket == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(ticket);
             }
-            return View(ticket);
         }
 
         // POST: Tickets/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Supprimer")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Ticket ticket = db.Tickets.Find(id);
-            db.Tickets.Remove(ticket);
-            db.SaveChanges();
+            using (var db = new ApplicationDbContext())
+            {
+                Ticket ticket = db.Tickets.Find(id);
+                db.Tickets.Remove(ticket);
+                db.SaveChanges();
+            }
             return RedirectToAction("Index");
         }
 
@@ -119,7 +143,10 @@ namespace BugReportAssist.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                using (var db = new ApplicationDbContext())
+                {
+                    db.Dispose();
+                }
             }
             base.Dispose(disposing);
         }
