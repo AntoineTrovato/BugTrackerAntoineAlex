@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using BugTracker.Models;
 
 namespace BugReportAssist.Models
 {
@@ -25,9 +26,15 @@ namespace BugReportAssist.Models
         {
         }
 
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Ticket> Tickets { get; set; }
     }
+ 
+        
+
 }

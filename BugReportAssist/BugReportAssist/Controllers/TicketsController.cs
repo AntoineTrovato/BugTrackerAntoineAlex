@@ -12,7 +12,7 @@ namespace BugReportAssist.Controllers
 {
     public class TicketsController : Controller
     {
-        private TicketDBContext db = new TicketDBContext();
+        private Appl db = new TicketDBContext();
 
         // GET: Tickets
         public ActionResult Index()

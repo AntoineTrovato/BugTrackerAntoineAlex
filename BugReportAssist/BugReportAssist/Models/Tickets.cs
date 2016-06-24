@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using BugTracker.Models;
 
 
 namespace BugTracker.Models
@@ -15,8 +16,8 @@ namespace BugTracker.Models
         public DateTime ReleaseDate { get; set; }
     }
 
-    public class TicketDBContext : DbContext
-    {
         public DbSet<Ticket> Tickets { get; set; }
-    }
+    
+
+
 }
