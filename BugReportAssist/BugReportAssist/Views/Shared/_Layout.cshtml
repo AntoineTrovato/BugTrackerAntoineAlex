@@ -24,16 +24,19 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
                 </ul>
-                <div class="btn-group">
+                <div style="height: 50px;" class="btn-group">
                     <button style="background-color: #222222; margin-top: 8px; float: left;" class="btn dropdown-toggle" type="button" data-toggle="dropdown">
                         @Html.ActionLink("Tickets", "About", "Home")
-                        <span style="color: white;" class="caret"></span>
+                        <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="/Ticket/Create">Poster un ticket</a>
+                            <!--<a href="/Ticket/Create">Poster un ticket</a>
                             <a href="/Ticket/Details">Voir tout</a>
-                            <a href="#">Voir mes posts</a>   
+                            <a href="#">Voir mes posts</a>-->
+                            @Html.ActionLink("Poster un ticket", "Create", "Tickets")
+                            @Html.ActionLink("Voir tout", "Details", "Tickets")
+                            @Html.ActionLink("Voir mes ticket", "", "Tickets")
                         </li>
                     </ul>
                 </div>

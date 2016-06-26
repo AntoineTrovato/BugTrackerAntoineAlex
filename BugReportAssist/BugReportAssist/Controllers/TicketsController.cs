@@ -14,7 +14,6 @@ namespace BugReportAssist.Controllers
     public class TicketsController : Controller
     {
         
-
         // GET: Tickets
         public ActionResult Index()
         {
