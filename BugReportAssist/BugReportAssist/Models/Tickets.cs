@@ -18,10 +18,10 @@ namespace BugTracker.Models
 
         public string Application { get; set; }
 
-        public DateTime ReleaseDate { get; set; }
+        public DateTime Date { get; set; }
         public Ticket()
         {
-            this.ReleaseDate = DateTime.Now;
+            this.Date = DateTime.Now;
         }
     }
 }
