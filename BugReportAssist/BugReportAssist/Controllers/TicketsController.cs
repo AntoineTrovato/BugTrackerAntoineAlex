@@ -54,7 +54,7 @@ namespace BugReportAssist.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Sujet,Description,Date")] Ticket ticket)
+        public ActionResult Create([Bind(Include = "ID,Sujet,Description")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace BugReportAssist.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Sujet,Description,Date")] Ticket ticket)
+        public ActionResult Edit([Bind(Include = "ID,Sujet,Description,ReleaseDate")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
@@ -125,7 +125,7 @@ namespace BugReportAssist.Controllers
         }
 
         // POST: Tickets/Delete/5
-        [HttpPost, ActionName("Supprimer")]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
