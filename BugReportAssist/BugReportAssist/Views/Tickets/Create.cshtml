@@ -32,6 +32,42 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Application, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control">
+                    <option value="" />
+                    <option value="Apple" />Apple
+                    <option value="Windows" />Windows
+                    <option value="Android" />Android
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Statut, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control">
+                    <option value="" />
+                    <option value="Non traité" />Non traité
+                    <option value="En cours"/>En cours
+                    <option value="Résolu" />Résolu
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Importance, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control">
+                    <option value="" />
+                    <option value="Léger" style="background-color: green; color: white;" />Léger
+                    <option value="Moyen" style="background-color: orange; color: white;" />Moyen
+                    <option value="Urgent" style="background-color: red; color: white;" />Urgent
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Créer" class="btn btn-default" />
             </div>

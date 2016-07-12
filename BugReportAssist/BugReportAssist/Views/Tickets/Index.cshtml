@@ -20,6 +20,15 @@
         <th>
             @Html.DisplayNameFor(model => model.ReleaseDate)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Application)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Statut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Importance)
+        </th>
         <th></th>
     </tr>
 
@@ -35,9 +44,18 @@
             @Html.DisplayFor(modelItem => item.ReleaseDate)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Application)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Statut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Importance)
+        </td>
+        <td>
             @Html.ActionLink("Editer", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Détails", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Supprimer", "Delete", new { id=item.ID })
+            @Html.ActionLink("Supprimer", "Delete", new { id=item.ID }) |
         </td>
     </tr>
 }

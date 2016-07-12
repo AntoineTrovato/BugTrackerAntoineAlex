@@ -13,6 +13,11 @@ namespace BugTracker.Models
         public int ID { get; set; }
         public string Sujet { get; set; }
         public string Description { get; set; }
+        public string Statut { get; set; }
+        public string Importance { get; set; }
+
+        public string Application { get; set; }
+
         public DateTime ReleaseDate { get; set; }
         public Ticket()
         {
