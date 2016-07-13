@@ -9,6 +9,9 @@
 <p>
     @Html.ActionLink("Créer nouveau ticket", "Create")
 </p>
+<p>
+    @Html.ActionLink("Voir tous les tickets non résolu", "NotResolved", null, new {@class = "text-white !important" });
+</p>
 <table class="table">
     <tr>
         <th>
@@ -18,10 +21,10 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateCreation)
+            <span>Date de création</span>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateModification)
+            <span>Date de modification </span>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Application)
