@@ -12,7 +12,7 @@
     <dl class="dl-horizontal">
         <dt>Mot de passe :</dt>
         <dd>
-            [
+            <div></div>
             @if (Model.HasPassword)
             {
                 @Html.ActionLink("Changer votre mot de passe", "ChangePassword")
@@ -23,11 +23,10 @@
             }
             ]
         </dd>
-        <dt>:</dt>
+        @*<dt>Username:</dt>
         <dd>
-            @Model.Logins.Count [
-            @Html.ActionLink("Gérer", "ManageLogins") ]
-        </dd>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </dd>*@
         @*<dt>Connexions externes :</dt>
         <dd>
             @Model.Logins.Count [
