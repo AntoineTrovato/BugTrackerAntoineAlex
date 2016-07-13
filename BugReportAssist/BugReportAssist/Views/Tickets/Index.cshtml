@@ -10,8 +10,13 @@
 <p class="btn btn-inverse" style="float: left; margin-right: 20px; margin-bottom: 20px;">
     @Html.ActionLink("Créer nouveau ticket", "Create")
 </p>
+<<<<<<< HEAD
 <p class="btn btn-inverse">
     @Html.ActionLink("Voir tous les tickets non résolu", "NotResolved")
+=======
+<p>
+    @Html.ActionLink("Voir tous les tickets non résolu", "NotResolved", null, new {@class = "text-white !important" });
+>>>>>>> ddf3c5d0359b2abb9971ae22fd34a70eb299c4d2
 </p>
 <table class="table">
     <tr>
@@ -23,6 +28,12 @@
         </th>
         <th>
             <span>Date de création</span>
+<<<<<<< HEAD
+=======
+        </th>
+        <th>
+            <span>Date de modification </span>
+>>>>>>> ddf3c5d0359b2abb9971ae22fd34a70eb299c4d2
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Application)
@@ -45,7 +56,10 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Date)
+            @Html.DisplayFor(modelItem => item.DateCreation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateModification)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Application)

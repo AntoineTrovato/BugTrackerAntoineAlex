@@ -69,6 +69,7 @@ namespace BugReportAssist.Controllers
             {
                 using (var db = new ApplicationDbContext())
                 {
+                    ticket.DateCreation = DateTime.Now;
                     db.Tickets.Add(ticket);
                     db.SaveChanges();
                 }
@@ -101,7 +102,7 @@ namespace BugReportAssist.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Sujet,Description,Date,Application,Statut,Importance")] Ticket ticket)
+        public ActionResult Edit([Bind(Include = "ID,Sujet,Description,DateCreation,Application,Statut,Importance")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {

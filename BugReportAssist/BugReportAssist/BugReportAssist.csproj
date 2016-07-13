@@ -202,6 +202,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="Migrations\201607130905411_InitialCreate.cs" />
+    <Compile Include="Migrations\201607130905411_InitialCreate.Designer.cs">
+      <DependentUpon>201607130905411_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607130921515_Migration 1.cs" />
+    <Compile Include="Migrations\201607130921515_Migration 1.Designer.cs">
+      <DependentUpon>201607130921515_Migration 1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607130949212_Migration 2.cs" />
+    <Compile Include="Migrations\201607130949212_Migration 2.Designer.cs">
+      <DependentUpon>201607130949212_Migration 2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+>>>>>>> ddf3c5d0359b2abb9971ae22fd34a70eb299c4d2
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Tickets.cs" />
@@ -288,6 +304,20 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201607130905411_InitialCreate.resx">
+      <DependentUpon>201607130905411_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607130921515_Migration 1.resx">
+      <DependentUpon>201607130921515_Migration 1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607130949212_Migration 2.resx">
+      <DependentUpon>201607130949212_Migration 2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+>>>>>>> ddf3c5d0359b2abb9971ae22fd34a70eb299c4d2
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
