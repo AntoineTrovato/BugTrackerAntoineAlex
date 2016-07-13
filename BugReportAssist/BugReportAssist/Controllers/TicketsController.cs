@@ -23,6 +23,15 @@ namespace BugReportAssist.Controllers
             }
         }
 
+        // GET: Tickets/NotFinish
+        public ActionResult NotFinish()
+        {
+            using (var db = new ApplicationDbContext())
+            {
+                return View(db.Database.SqlQuery<Ticket>("Select * from dbo.Tickets where dbo.Tickets.Statut = 'Non Traité'").ToList());
+            }
+        }
+
         // GET: Tickets/Details/5
         public ActionResult Details(int? id)
         {
