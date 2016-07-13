@@ -6814,3 +6814,49 @@ td.visible-print {
     display: none !important;
   }
 }
+
+.btn-inverse { 
+  color: #ffffff; 
+  background-color: #222222; 
+  border-color: #FF0303; 
+} 
+ 
+.btn-inverse:hover, 
+.btn-inverse:focus, 
+.btn-inverse:active, 
+.btn-inverse.active, 
+.open .dropdown-toggle.btn-inverse { 
+  color: #ffffff; 
+  background-color: #3D3D3D; 
+  border-color: #FF0303; 
+} 
+ 
+.btn-inverse:active, 
+.btn-inverse.active, 
+.open .dropdown-toggle.btn-inverse { 
+  background-image: none; 
+} 
+ 
+.btn-inverse.disabled, 
+.btn-inverse[disabled], 
+fieldset[disabled] .btn-inverse, 
+.btn-inverse.disabled:hover, 
+.btn-inverse[disabled]:hover, 
+fieldset[disabled] .btn-inverse:hover, 
+.btn-inverse.disabled:focus, 
+.btn-inverse[disabled]:focus, 
+fieldset[disabled] .btn-inverse:focus, 
+.btn-inverse.disabled:active, 
+.btn-inverse[disabled]:active, 
+fieldset[disabled] .btn-inverse:active, 
+.btn-inverse.disabled.active, 
+.btn-inverse[disabled].active, 
+fieldset[disabled] .btn-inverse.active { 
+  background-color: #222222; 
+  border-color: #FF0303; 
+} 
+ 
+.btn-inverse .badge { 
+  color: #222222; 
+  background-color: #ffffff; 
+}

@@ -1,14 +1,18 @@
 ﻿@model IEnumerable<BugTracker.Models.Ticket>
+
 @{
-    ViewBag.Title = "NotFinish";
+    ViewBag.Title = "NotResolved";
 }
 
 <h2>Tickets Non-résolus</h2>
 
 
 
-<p>
+<p class="btn btn-inverse" style="float: left; margin-right: 20px; margin-bottom: 20px;">
     @Html.ActionLink("Créer nouveau ticket", "Create")
+</p>
+<p class="btn btn-inverse">
+    @Html.ActionLink("Voir tous les tickets", "")
 </p>
 <table class="table">
     <tr>

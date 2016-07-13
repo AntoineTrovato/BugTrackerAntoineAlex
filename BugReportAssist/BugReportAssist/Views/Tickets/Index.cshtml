@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<BugTracker.Models.Ticket>
+<link href="Site.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Création ticket";
@@ -6,8 +7,11 @@
 
 <h2>Création ticket</h2>
 
-<p>
+<p class="btn btn-inverse" style="float: left; margin-right: 20px; margin-bottom: 20px;">
     @Html.ActionLink("Créer nouveau ticket", "Create")
+</p>
+<p class="btn btn-inverse">
+    @Html.ActionLink("Voir tous les tickets non résolu", "NotResolved")
 </p>
 <table class="table">
     <tr>
@@ -18,7 +22,7 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Date)
+            <span>Date de création</span>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Application)
