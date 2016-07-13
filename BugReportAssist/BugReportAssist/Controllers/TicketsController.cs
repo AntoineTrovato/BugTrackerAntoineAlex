@@ -69,6 +69,7 @@ namespace BugReportAssist.Controllers
             {
                 using (var db = new ApplicationDbContext())
                 {
+                    ticket.DateCreation = DateTime.Now;
                     db.Tickets.Add(ticket);
                     db.SaveChanges();
                 }
