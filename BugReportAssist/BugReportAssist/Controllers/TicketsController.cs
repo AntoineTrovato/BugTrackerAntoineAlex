@@ -23,8 +23,8 @@ namespace BugReportAssist.Controllers
             }
         }
 
-        // GET: Tickets/NotFinish
-        public ActionResult NotFinish()
+        // GET: Tickets/NotResolved
+        public ActionResult NotResolved()
         {
             using (var db = new ApplicationDbContext())
             {
