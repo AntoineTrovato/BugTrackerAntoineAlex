@@ -27,11 +27,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Date)
+            <span>Date de création</span>
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Date)
+            @Html.DisplayFor(model => model.DateCreation)
+        </dd>
+
+        <dt>
+            <span>Date de dernière modification</span>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateModification)
         </dd>
 
         <dt>
@@ -62,6 +70,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editer", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Retour à la liste de ticket", "Index")
+    <div class="btn btn-inverse">@Html.ActionLink("Editer", "Edit", new { id = Model.ID })</div> |
+    <div class="btn btn-inverse">@Html.ActionLink("Retour à la liste de ticket", "Index")</div>
 </p>

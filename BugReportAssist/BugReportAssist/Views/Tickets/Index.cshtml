@@ -62,10 +62,10 @@
             @Html.DisplayFor(modelItem => item.Importance)
         </td>
         <td>
-            @Html.ActionLink("Editer", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Détails", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Supprimer", "Delete", new { id=item.ID }) |
-        </td>
+            <div class="btn btn-inverse">@Html.ActionLink("Editer", "Edit", new { id = item.ID })</div> |
+            <div class="btn btn-inverse">@Html.ActionLink("Détails", "Details", new { id = item.ID })</div> |
+            <div class="btn btn-inverse">@Html.ActionLink("Supprimer", "Delete", new { id = item.ID })</div> |
+</td>
     </tr>
 }
 
