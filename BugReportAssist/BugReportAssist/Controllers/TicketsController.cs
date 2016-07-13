@@ -54,7 +54,7 @@ namespace BugReportAssist.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Sujet,Description,Statut,Importance")] Ticket ticket)
+        public ActionResult Create([Bind(Include = "ID,Sujet,Description,Application,Statut,Importance")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace BugReportAssist.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Sujet,Description,Date,Statut,Importance")] Ticket ticket)
+        public ActionResult Edit([Bind(Include = "ID,Sujet,Description,Date,Application,Statut,Importance")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
