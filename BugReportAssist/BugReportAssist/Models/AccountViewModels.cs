@@ -5,7 +5,7 @@ namespace BugReportAssist.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
-        [Required] 
+        [Required]
         [Display(Name = "Courrier électronique")]
         public string Email { get; set; }
     }

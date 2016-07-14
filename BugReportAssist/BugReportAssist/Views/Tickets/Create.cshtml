@@ -7,10 +7,10 @@
 <h2>Créer un ticket</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Ticket</h4>
         <hr />
@@ -18,7 +18,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Sujet, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Sujet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Sujet, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                 @Html.ValidationMessageFor(model => model.Sujet, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -36,11 +36,10 @@
             <div class="col-md-10">
                 @Html.DropDownList("Application", new SelectListItem[]
                 {
-                    new SelectListItem { Text="", Value="" },
                     new SelectListItem { Text="Apple", Value="Apple" },
                     new SelectListItem { Text="Windows", Value="Windows" },
                     new SelectListItem { Text="Android", Value="Android" }
-                }, htmlAttributes: new { @class = "form-control" })
+                }, htmlAttributes: new { @class = "form-control", required = "required" })
             </div>
         </div>
 
@@ -49,10 +48,9 @@
             <div class="col-md-10">
                 @Html.DropDownList("Statut", new SelectListItem[]
                 {
-                    new SelectListItem { Text="", Value="" },
-                    new SelectListItem { Text="Non traité", Value="Non traité" },
+                    new SelectListItem { Text="Non résolu", Value="Non résolu" },
                     new SelectListItem { Text="En cours", Value="En cours" }
-                }, htmlAttributes: new { @class = "form-control" })
+                }, htmlAttributes: new { @class = "form-control", required = "required" })
             </div>
         </div>
 
@@ -61,11 +59,10 @@
             <div class="col-md-10">
                 @Html.DropDownList("Importance", new SelectListItem[]
                 {
-                    new SelectListItem { Text="", Value="" },
                     new SelectListItem { Text="Léger", Value="Léger" },
                     new SelectListItem { Text="Moyen", Value="Moyen" },
                     new SelectListItem { Text="Urgent", Value="Urgent" }
-                }, htmlAttributes: new { @class = "form-control" })
+                }, htmlAttributes: new { @class = "form-control", required = "required" })
             </div>
         </div>
 
