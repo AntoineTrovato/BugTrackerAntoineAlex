@@ -13,7 +13,6 @@ namespace BugReportAssist.Controllers
 {
     public class TicketsController : Controller
     {
-        
         // GET: Tickets
         public ActionResult Index()
         {
@@ -28,7 +27,7 @@ namespace BugReportAssist.Controllers
         {
             using (var db = new ApplicationDbContext())
             {
-                return View(db.Database.SqlQuery<Ticket>("Select * from dbo.Tickets where dbo.Tickets.Statut = 'Non Traité'").ToList());
+                return View(db.Database.SqlQuery<Ticket>("Select * from dbo.Tickets where dbo.Tickets.Statut = 'Non résolu'").ToList());
             }
         }
 

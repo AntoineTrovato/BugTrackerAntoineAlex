@@ -24,10 +24,10 @@ namespace BugReportAssist.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
-            Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseAlways<ApplicationDbContext>());
+            Database.SetInitializer<ApplicationDbContext>(new CreateDatabaseIfNotExists<ApplicationDbContext>());
         }
 
-        public class ApplicationDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
+        public class ApplicationDbInitializer : CreateDatabaseIfNotExists<ApplicationDbContext>
         {
             protected override void Seed(ApplicationDbContext context)
             {
