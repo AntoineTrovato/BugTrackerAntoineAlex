@@ -12,28 +12,37 @@
 <p class="btn btn-inverse">
     @Html.ActionLink("Voir tous les tickets non résolu", "NotResolved")
 </p>
+
+@using (Html.BeginForm())
+{
+<p>
+    Trouver par Sujet: @Html.TextBox("SearchString")
+    <input type="submit" value="Search" />
+</p>
+}
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Sujet)       
+            @Html.ActionLink("Sujet", "Index", new { sortOrder = ViewBag.SujetSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.ActionLink("Description", "Index", new { sortOrder = ViewBag.DescriptionSortParm })
         </th>
         <th>
-            <span>Date de création</span>
+            @Html.ActionLink("Date de Creation", "Index", new { sortOrder = ViewBag.DateCreationSortParm })
         </th>
         <th>
-            <span>Date de modification </span>
+            @Html.ActionLink("Date de Modification", "Index", new { sortOrder = ViewBag.DateModificationSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Application)
+            @Html.ActionLink("Application", "Index", new { sortOrder = ViewBag.ApplicationSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Statut)
+            @Html.ActionLink("Statut", "Index", new { sortOrder = ViewBag.StatutSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Importance)
+            @Html.ActionLink("Importance", "Index", new { sortOrder = ViewBag.ImportanceSortParm })
         </th>
         <th></th>
     </tr>

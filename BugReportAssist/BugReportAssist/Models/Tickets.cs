@@ -11,6 +11,7 @@ namespace BugTracker.Models
     public class Ticket
     {
         public int ID { get; set; }
+        
         public string Sujet { get; set; }
         public string Description { get; set; }
         public string Statut { get; set; }

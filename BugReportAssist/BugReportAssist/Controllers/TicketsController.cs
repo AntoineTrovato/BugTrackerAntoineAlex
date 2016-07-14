@@ -15,11 +15,60 @@ namespace BugReportAssist.Controllers
     {
         
         // GET: Tickets
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
-            using(var db = new ApplicationDbContext())
+            using (var db = new ApplicationDbContext())
             {
-                return View(db.Tickets.ToList());
+                ViewBag.SujetSortParm = String.IsNullOrEmpty(sortOrder) ? "Sujet" : "";
+                ViewBag.DescriptionSortParm = String.IsNullOrEmpty(sortOrder) ? "Description" : "";
+                ViewBag.DateCreationSortParm = sortOrder == "Date de Creation" ? "date_cre" : "Date de Creation";
+                ViewBag.DateModificationSortParm = sortOrder == "Date de Modification" ? "date_modif" : "Date de Modification";
+                ViewBag.ApplicationSortParm = String.IsNullOrEmpty(sortOrder) ? "Application" : "";
+                ViewBag.StatutSortParm = String.IsNullOrEmpty(sortOrder) ? "Statut" : "";
+                ViewBag.ImportanceSortParm = String.IsNullOrEmpty(sortOrder) ? "Importance" : "";
+
+                var tickets = from Ticket in db.Tickets
+                              select Ticket;
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    tickets = tickets.Where(Ticket => Ticket.Sujet.Contains(searchString));
+                }
+
+                switch (sortOrder)
+                {
+                    case "Sujet":
+                        tickets = tickets.OrderBy(Ticket => Ticket.Sujet);
+                        break;
+                    case "Description":
+                        tickets = tickets.OrderBy(Ticket => Ticket.Description);
+                        break;
+                    case "Date de Creation":
+                        tickets = tickets.OrderBy(Ticket => Ticket.DateCreation);
+                        break;
+                    case "date_cre":
+                        tickets = tickets.OrderBy(Ticket => Ticket.DateCreation);
+                        break;
+                    case "Date de Modification":
+                        tickets = tickets.OrderBy(Ticket => Ticket.DateModification);
+                        break;
+                    case "date_modif":
+                        tickets = tickets.OrderBy(Ticket => Ticket.DateModification);
+                        break;
+                    case "Application":
+                        tickets = tickets.OrderBy(Ticket => Ticket.Application);
+                        break;
+                    case "Statut":
+                        tickets = tickets.OrderBy(Ticket => Ticket.Statut);
+                        break;
+                    case "Importance":
+                        tickets = tickets.OrderBy(Ticket => Ticket.Importance);
+                        break;
+                    default:
+                        tickets = tickets.OrderBy(Ticket => Ticket.ID);
+                        break;
+                }
+                return View(tickets.ToList());
             }
         }
 
